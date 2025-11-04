@@ -161,10 +161,3 @@ kubectl rollout restart deployment/mlflow -n application
 # Повторне застосування Terraform
 cd argocd && terraform apply -auto-approve
 ```
-
----
-
-🔗 [Посилання на GitHub-репозиторій (гілка `lesson-7`)](https://github.com/EdwardPROM/lesson-7/tree/lesson-7)
-
-
-```
