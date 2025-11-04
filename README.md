@@ -3,7 +3,7 @@ _Aвтоматизація деплою з GitOps-підходом_
 
 ---
 
-## 🗂 Структура репозиторію
+## Структура репозиторію
 
 ```
 
@@ -26,7 +26,7 @@ LESSON-7/
 
 ---
 
-## ✅ Передумови
+## Передумови
 
 - Встановлено: `kubectl`, `helm`, `terraform` (версія ≥1.5)
 - Налаштований доступ до Kubernetes-кластера (EKS/minikube/інший)
@@ -34,7 +34,7 @@ LESSON-7/
 
 ---
 
-## 1️⃣ Розгортання ArgoCD через Terraform
+## 1 Розгортання ArgoCD через Terraform
 
 ### Перевір контекст Kubernetes:
 
@@ -62,7 +62,7 @@ kubectl get pods -n infra-tools
 
 ---
 
-## 2️⃣ Доступ до UI ArgoCD
+## 2 Доступ до UI ArgoCD
 
 ### Через port-forward:
 
@@ -84,7 +84,7 @@ kubectl -n infra-tools get secret argocd-initial-admin-secret -o jsonpath="{.dat
 
 ---
 
-## 3️⃣ Деплой MLflow через ArgoCD Application (Helm)
+## 3 Деплой MLflow через ArgoCD Application (Helm)
 
 ### Застосування Application:
 
@@ -100,7 +100,7 @@ kubectl get applications.argoproj.io -n infra-tools mlflow
 
 ---
 
-## 4️⃣ Перевірка MLflow
+## 4 Перевірка MLflow
 
 ### Поди та сервіс:
 
@@ -119,7 +119,7 @@ kubectl port-forward -n application svc/mlflow 5000:5000
 
 ---
 
-## 5️⃣ GitOps-підхід
+## 5 GitOps-підхід
 
 * Зміни вносяться в `application.yaml` або `mlflow-values.yaml`
 * ArgoCD автоматично підтягне зміни (autosync увімкнено)
@@ -131,7 +131,7 @@ kubectl get applications.argoproj.io -n infra-tools mlflow
 
 ---
 
-## 6️⃣ Прибирання (Cleanup)
+## 6 Прибирання (Cleanup)
 
 ```bash
 # Видалити Application (MLflow)
@@ -146,7 +146,7 @@ kubectl delete ns application
 
 ---
 
-## 🧰 Корисні команди
+## Корисні команди
 
 ```bash
 # Поди ArgoCD
