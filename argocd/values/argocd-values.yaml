@@ -1,0 +1,55 @@
+# argocd/values/argocd-values.yaml
+
+global:
+  domain: ""  
+
+crds:
+  install: true
+
+configs:
+  params:
+    admin.enabled: "true"   
+    server.insecure: "true" 
+  cm:
+    timeout.reconciliation: 30s
+
+server:
+  service:
+    type: ClusterIP
+    port: 80
+    annotations: {}
+  extraArgs:
+    - --insecure
+  ingress:
+    enabled: false
+  rbacConfig:
+    policy.default: role:readonly
+
+controller:
+  replicas: 1
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+
+repoServer:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+
+applicationSet:
+  enabled: true
+
+notifications:
+  enabled: false
+
+dex:
+  enabled: false
+
+redis:
+  enabled: true
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
